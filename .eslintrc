@@ -1,0 +1,17 @@
+{
+  "extends": ["airbnb-base", "airbnb/rules/react"],
+  "parser": "babel-eslint",
+  "env": {
+    "browser": true,
+    "node": true,
+    "es6": true,
+    "jest": true
+  },
+  "rules": {
+    "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
+    "jsx-quotes": ["error", "prefer-single"],
+    "react/require-default-props": [0],
+    "react/prop-types": 0,
+    "no-alert": 0,
+  }
+}

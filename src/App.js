@@ -80,23 +80,37 @@ class App extends Component {
     }
   }
 
+
+
   render() {
     const { inputValue, rounds } = this.state;
-    const style = {
+    const appStyle = {
       minWidth: `${275 * rounds.length}px`,
       marginTop: '100px',
       marginBottom: '100px',
     };
+    const textAreaStyle = {
+      display: 'block',
+      height: '200px',
+      width: '250px',
+      resize: 'none',
+      background: '#3a404e',
+      borderRadius: '2px',
+      border: 'solid 1px #868fa5',
+      margin: '5px',
+      padding: '10px',
+      color: '#fff'
+    }
     return (
       <>
         <form style={{ marginTop: '50px', marginLeft: '50px', color: '#FFF' }} onSubmit={this.handleSubmit}>
           <label>
             {'teams - one per line, ordered by seed, best to worst: '}
-            <textarea style={{ display: 'block' }} value={inputValue} onChange={this.handleChange} />
+            <textarea style={ textAreaStyle }value={inputValue} onChange={this.handleChange} />
           </label>
           <input style={{ display: 'block' }} type='submit' value='Submit' />
         </form>
-        <div className='App' style={style}>
+        <div className='App' style={appStyle}>
           {rounds.map(
             (round) => <Round key={round} round={round} updateMatches={this.updateMatches} />,
           )}
