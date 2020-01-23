@@ -1,8 +1,5 @@
-/* eslint-disable */
-
 import React, { Component } from 'react';
 import cloneDeep from 'lodash.clonedeep';
-import orderBy from 'lodash.orderby';
 import './App.css';
 import Round from './Round';
 import createRounds from './utils';
@@ -27,34 +24,9 @@ class App extends Component {
       alert('Not Valid');
       return;
     }
-    const teams = inputValue.split('\n').map((teamName) => {
-      return {
-        name: teamName
-      }
-    });
+    const teams = inputValue.split('\n').map((teamName) => ({ name: teamName }));
     const rounds = createRounds(teams);
     this.setState({ rounds });
-    // const numberOfTeams = inputValue;
-    // fetch('https://api.opendota.com/api/teams').then((response) => response.json())
-    //   .then((response) => {
-    //     const listOfTeams = orderBy(response, 'rating', 'desc');
-    //     const teamsInTourney = listOfTeams.slice(0, numberOfTeams);
-    //     const promises = teamsInTourney.map((team) => {
-    //       const promise = fetch(`https://api.opendota.com/api/teams/${team.team_id}/players`).then((resp) => resp.json());
-    //       return promise;
-    //     });
-    //     Promise.all(promises).then((resp) => {
-    //       const updatedTeamsInTourney = [];
-    //       resp.forEach((team, i) => {
-    //         const currentTeam = team.filter((player) => player.is_current_team_member)
-    //           .map((player) => player.name);
-    //         teamsInTourney[i].players = currentTeam;
-    //         updatedTeamsInTourney[i] = teamsInTourney[i];
-    //       });
-    //       const rounds = createRounds(updatedTeamsInTourney);
-    //       this.setState({ rounds });
-    //     });
-    //   });
   }
 
   updateMatches = (id, winner, round) => {
@@ -80,8 +52,6 @@ class App extends Component {
     }
   }
 
-
-
   render() {
     const { inputValue, rounds } = this.state;
     const appStyle = {
@@ -99,14 +69,14 @@ class App extends Component {
       border: 'solid 1px #868fa5',
       margin: '5px',
       padding: '10px',
-      color: '#fff'
-    }
+      color: '#fff',
+    };
     return (
       <>
         <form style={{ marginTop: '50px', marginLeft: '50px', color: '#FFF' }} onSubmit={this.handleSubmit}>
           <label>
             {'teams - one per line, ordered by seed, best to worst: '}
-            <textarea style={ textAreaStyle }value={inputValue} onChange={this.handleChange} />
+            <textarea style={textAreaStyle} value={inputValue} onChange={this.handleChange} />
           </label>
           <input style={{ display: 'block' }} type='submit' value='Submit' />
         </form>
