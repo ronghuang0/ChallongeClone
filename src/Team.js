@@ -48,14 +48,8 @@ const Team = ({
           { (team && team.seed) || '0'}
         </div>
         <div style={nameStyle}>
-          { (team && (team.name || 'team has no name')) || 'placeholder'}
+          { (team && team.name) || 'placeholder'}
         </div>
-      </div>
-      <div style={{ color: '#FFF' }}>
-        <div>{team && team.rating ? `elo: ${team.rating}` : null}</div>
-        <div>{team && team.wins ? `w: ${team.wins}` : null}</div>
-        <div>{team && team.losses ? `l: ${team.losses}` : null}</div>
-        <div>{team && team.players ? `current players: ${team.players.join(', ')}` : null}</div>
       </div>
     </>
   );

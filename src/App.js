@@ -24,7 +24,9 @@ class App extends Component {
       alert('Not Valid');
       return;
     }
-    const teams = inputValue.split('\n').map((teamName) => ({ name: teamName }));
+    const teams = inputValue.split('\n')
+      .filter((teamName) => teamName !== '' && teamName.trim() !== '')
+      .map((teamName) => ({ name: teamName }));
     const rounds = createRounds(teams);
     this.setState({ rounds });
   }
@@ -74,10 +76,13 @@ class App extends Component {
     return (
       <>
         <form style={{ marginTop: '50px', marginLeft: '50px', color: '#FFF' }} onSubmit={this.handleSubmit}>
-          <label>
-            {'teams - one per line, ordered by seed, best to worst: '}
-            <textarea style={textAreaStyle} value={inputValue} onChange={this.handleChange} />
-          </label>
+          <div>teams:</div>
+          <ul style={{ marginTop: '5px', marginBottom: '10px', padding: '0px 30px' }}>
+            <li>one per line</li>
+            <li>ordered by seed (best to worst)</li>
+            <li>odd numbers okay</li>
+          </ul>
+          <textarea style={textAreaStyle} value={inputValue} onChange={this.handleChange} />
           <input style={{ display: 'block' }} type='submit' value='Submit' />
         </form>
         <div className='App' style={appStyle}>
