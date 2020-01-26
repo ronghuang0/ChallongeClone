@@ -15,7 +15,6 @@ const Match = ({ match, updateMatches }) => {
     backgroundColor: '#58595e',
     textAlign: 'left',
   };
-  console.log('render');
   return (
     <div style={style}>
       <Team isTeam1 match={match} updateMatches={updateMatches} />

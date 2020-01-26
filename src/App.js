@@ -76,7 +76,7 @@ class App extends Component {
     return (
       <>
         <form style={{ marginTop: '50px', marginLeft: '50px', color: '#FFF' }} onSubmit={this.handleSubmit}>
-          <div>teams:</div>
+          <div>Participants/Teams:</div>
           <ul style={{ marginTop: '5px', marginBottom: '10px', padding: '0px 30px' }}>
             <li>one per line</li>
             <li>ordered by seed (best to worst)</li>
