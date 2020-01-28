@@ -1,19 +1,9 @@
-## Available Scripts
-
-In the project directory, you can run:
-
-### `npm start`
-
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
-
 ### Overview
 
+https://challongeclone.herokuapp.com
+
 I use challonge.com frequently to set up quick tournaments with friends. This is a clone of that.
-Turns out creating brackets are a bit more involved than I first expected. 
+Turns out creating brackets are a bit more involved than I first expected.
 
 utils:
 
@@ -29,3 +19,12 @@ the previous rounds by looking at the team1 and team2 properties.
 
 moveOnByes - checks the matches for byes and moves the correct team to the next round. Mutates the
 rounds array.
+
+## Available Scripts
+
+In the project directory, you can run:
+
+### `webpack -p`
+### `node server.js`
+
+Open (http://localhost:8080) to view it in the browser.
