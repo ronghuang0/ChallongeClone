@@ -60,6 +60,7 @@ class App extends Component {
       minWidth: `${275 * rounds.length}px`,
       marginTop: '100px',
       marginBottom: '100px',
+      textAlign: 'center',
     };
     const textAreaStyle = {
       display: 'block',
